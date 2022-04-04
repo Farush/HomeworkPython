@@ -38,7 +38,7 @@ while True:
 
 while True:
     seconds = input("Введите количество секунд: ")
-    if seconds.isdigit() and int(number) > 0
+    if seconds.isdigit() and int(number) >= 0
         seconds = int(seconds)
         break
     else:
