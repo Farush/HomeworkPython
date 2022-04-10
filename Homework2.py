@@ -16,7 +16,7 @@ some_list = some_string.split(' ')
 print(some_list)
 
 for i in range(len(some_list) // 2):
-    print(some_list[i * 2])
+    # print(some_list[i * 2])
     some_list[i * 2], some_list[i * 2 + 1] = some_list[i * 2 + 1], some_list[i * 2]
 
 print(some_list)
