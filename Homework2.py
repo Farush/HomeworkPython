@@ -130,10 +130,17 @@ for key in goods[1][1].keys():
     i = 0
     item_list = []
     for item in goods:  # по идее надо key in goods[i][1] или нет? но так все равно работает.
-        if goods[i][1].get(key) not in item_list:
-            item_list.append(goods[i][1].get(key))  # будет игнорить item, если он уже есть в списке. Надо ли?
+        item_list.append(goods[i][1].get(key))
+        #if goods[i][1].get(key) not in item_list:
+            #item_list.append(goods[i][1].get(key))  # будет игнорить item, если он уже есть в списке. Надо ли?
             # если в списке будут два одинаковых наименования или цены? В задании не указано.
         i += 1
-    analitics_dict[key] = item_list
+    #analitics_dict[key] = item_list так, если игнорим повторяющиеся items при составлении словаря
+
+    if key != 'ед.': # так, если позволяем собрать словарь с повторениями,
+        # но нужно, чтоб единицы измерения не повторялись.
+        analitics_dict[key] = item_list
+    else:
+        analitics_dict[key] = list(set(item_list))
     # print(item_list)
 print(analitics_dict)
