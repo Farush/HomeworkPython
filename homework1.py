@@ -38,11 +38,11 @@ while True:
 
 while True:
     seconds = input("Введите количество секунд: ")
-    if seconds.isdigit():
+    if seconds.isdigit() and int(number) >= 0
         seconds = int(seconds)
         break
     else:
-        print("Вы ввели неверные данные, должно быть целое число. ")
+        print("Вы ввели неверные данные, должно быть целое положительное число. ")
 
 hours = seconds // 3600
 seconds = seconds % 3600
@@ -150,3 +150,5 @@ while a < b:
 i += 1
 print(f'{i}-й день: {round(a, 2)}')
 print(f'На {i}-й день спортсмен достиг результата - не менее {b} км.')
+
+
