@@ -20,7 +20,7 @@ line_number = 0
 words = []
 
 with open('text.txt', 'r') as f:
-    while line:
+    while line: # можно while line != \n, тогда не будет считать последнюю пустую строку
 
         line = f.readline()
         line_number += 1
