@@ -1,5 +1,5 @@
 from random import randint
-
+import json
 
 # 1. Создать программный файл в текстовом формате, записать в него построчно данные, вводимые пользователем.
 # Об окончании ввода данных будет свидетельствовать пустая строка.
@@ -72,7 +72,7 @@ with open('numbers.txt', 'r') as f:
     lines = f.read()
     line = lines.splitlines()
 
-    for words in line:
+    for words in line: # вылетает, если в файле есть пустые строки.
         split_words = words.split()
         #print(split_words)
 
@@ -152,7 +152,7 @@ with open('subjects.txt', 'r') as f:
     # f.seek(0, 0)
     line = f.readline() # прочитываем первую строчку из файла
 
-    while line != '\n': # если строчка не пустая
+    while line: # если строчка не пустая
 
         words = line.split() # разбиваем строку, пишем список
         # print(words)
@@ -169,5 +169,25 @@ with open('subjects.txt', 'r') as f:
 
 print(subjects)
 
+# 7
+info_dict = {}
+average = 0
+with open('firms.txt', 'r') as f:
+    line = f.readline()
+    i = 0
+    while line:
+        info = line.split()
+        #print(info)
+        income = int(info[2]) - int(info[3])
+        info_dict[info[0]] = income
+        if income > 0:
+            average = average + income
+            i += 1
+        line = f.readline()
 
+average = round(average/i, 2)
+average_profit = {'average_profit': average}
+profit_list = [info_dict, average_profit]
 
+with open('profit.json', 'w') as f:
+   f.writelines(json.dumps(profit_list))
