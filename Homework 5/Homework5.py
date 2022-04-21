@@ -163,7 +163,7 @@ with open('subjects.txt', 'r') as f:
             hours = hours + digit_till_symbol(word)
         # print(hours)
         subjects[key] = hours # пишем ключ: значение в словарь
-        # print(subjects)
+        hours = 0 # обнуляем часы, чуть не забыл )
         line = f.readline() # читаем следущую строчку из файла
 
 
