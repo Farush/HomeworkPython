@@ -41,11 +41,11 @@ print(bakerStreet.mass(25, 5))
 # 3. Реализовать базовый класс Worker (работник).
 
 class Worker:
-    def __init__(self, name, surname, position, wage, bonus):
+    def __init__(self, name, surname, position, income):
         self.name = name
         self.surname = surname
         self.position = position
-        self._income = {'wage': wage, 'bonus': bonus}
+        self._income = income
 
 
 
@@ -58,8 +58,8 @@ class Position(Worker):
         return self._income['wage'] + self._income['bonus']
 
 
-person1 = Position('Ivanov', 'Ivan', 'engineer', 45000, 20000)
-person2 = Position('Petrov', 'Egor', 'manager', 38000, 15000)
+person1 = Position('Ivanov', 'Ivan', 'engineer', {'wage': 45000, 'bonus': 20000})
+person2 = Position('Petrov', 'Egor', 'manager', {'wage': 38000, 'bonus': 15000})
 
 print(person1.get_full_name())
 print(person1.get_total_income())
